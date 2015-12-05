@@ -1,5 +1,7 @@
 angular.module('guestListApp', [
-  'guestListApp.templates',
+    'ngResource',
+    'guestListApp.templates',
 
-  'guestListApp.users'
+    'guestListApp.users',
+    'guestListApp.guests'
 ]);

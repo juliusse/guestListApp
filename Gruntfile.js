@@ -19,7 +19,8 @@ module.exports = function(grunt) {
         files: {
           'public/dist/libs.min.js': [
             'bower_components/jquery/dist/jquery.min.js',
-            'bower_components/angular/angular.min.js'
+            'bower_components/angular/angular.min.js',
+            'bower_components/angular-resource/angular-resource.min.js'
           ]
         }
       }
