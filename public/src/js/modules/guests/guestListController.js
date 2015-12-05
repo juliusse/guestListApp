@@ -1,20 +1,22 @@
-angular.module('guestListApp.guests.directives.list', [])
+angular
+    .module('guestListApp.guests.directives.list', [])
     .directive('guestList', [function() {
         return {
             restrict: 'E',
             templateUrl: 'guests/guest-list.tpl.html',
-            controller: 'guestAddController'
+            controller: 'guestListController'
         }
     }])
-    .controller('guestAddController', [
+    .controller('guestListController', [
         '$scope', 'GuestService',
         function($scope, GuestService) {
-          $socpe.guests = [];
+          $scope.guests = [];
           GuestService
             .query()
+            .$promise
             .then(function(result) {
               result.forEach(function(g) {
-                $socpe.guests.push(g);
+                $scope.guests.push(g);
               });
             })
             .catch(console.error);
