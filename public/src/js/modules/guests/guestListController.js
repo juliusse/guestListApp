@@ -1,5 +1,5 @@
 angular.module('guestListApp.guests.directives.list', [])
-    .directive('listGuests', [function() {
+    .directive('guestList', [function() {
         return {
             restrict: 'E',
             templateUrl: 'guests/guest-list.tpl.html',

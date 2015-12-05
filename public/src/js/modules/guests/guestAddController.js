@@ -1,8 +1,8 @@
 angular.module('guestListApp.guests.directives.add', [])
-    .directive('addGuest', [function() {
+    .directive('guestAdd', [function() {
         return {
             restrict: 'E',
-            templateUrl: 'guests/add-guest.tpl.html',
+            templateUrl: 'guests/guest-add.tpl.html',
             controller: 'guestAddController'
         }
     }])
