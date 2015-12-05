@@ -7,8 +7,16 @@ angular.module('guestListApp.guests.directives.list', [])
         }
     }])
     .controller('guestAddController', [
-        '$scope',
-        function($scope) {
-            $scope.name = 'Guest1';
+        '$scope', 'GuestService',
+        function($scope, GuestService) {
+          $socpe.guests = [];
+          GuestService
+            .query()
+            .then(function(result) {
+              result.forEach(function(g) {
+                $socpe.guests.push(g);
+              });
+            })
+            .catch(console.error);
         }
     ]);

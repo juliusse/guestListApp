@@ -1,5 +1,5 @@
 angular.module('guestListApp.guests.service', [])
-    /*.service('guestService', ['$resource', function ($resource) {
+    .service('GuestService', ['$resource', function ($resource) {
         var GuestsService = $resource('/api/guests?name=:name', {
                 name: '@name'
             }
@@ -12,4 +12,4 @@ angular.module('guestListApp.guests.service', [])
 
 
         return GuestsService;
-    }])*/;
+    }]);

@@ -1,13 +1,22 @@
-<table class="list-group">
+<table class="table table-striped">
   <head>
     <tr>
-      
+      <th>
+        name
+      </th>
+      <th>
+        email
+      </th>
+      <th>
+        caegories
+      </th>
     </tr>
   </head>
   <tr
-    class="list-group-item"
     ng-repeat="guest in guests"
   >
-    
+    <td>{{guest.name}}</td>
+    <td>{{guest.email}}</td>
+    <td>{{guest.categories}}</td>
   </li>
 </ul>
