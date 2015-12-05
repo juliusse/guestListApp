@@ -5,7 +5,20 @@ var Guest = require('../models/guests');
 /* GET users listing. */
 router
   .get('/', function(request, response, next) {
-    Guest.find(function(error, result) {
+    var query = {};
+    if( request.query.name ) {
+      var regex = new RegExp(request.query.name);
+      query.$or = [
+        {
+          name: regex
+        },
+        {
+          email: regex
+        }
+      ];
+    }
+
+    Guest.find(query, function(error, result) {
       if( error ) {
         response.status = 400;
         return response.json(error);
