@@ -7,7 +7,7 @@ router
   })
 
   .get('/add',function(request,response, next) {
-      response.render('add-guest', { title: 'Guest List App - add guests' });
+      response.render('guest-add', { title: 'Guest List App - add guests' });
   });
 
 module.exports = router;

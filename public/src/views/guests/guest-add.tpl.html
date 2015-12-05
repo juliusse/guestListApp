@@ -1,4 +1,6 @@
-<input ng-model="name" ng-change="searchForSuggestion()" >
-<input ng-model="email">
-<input ng-model="category">
-<button ng-submit="saveEntry()">Save</button>
+<form ng-submit="save()">
+    <input id="add_guest_name" ng-model="name" ng-change="searchForSuggestion()">
+    <input ng-model="email" >
+    <input ng-model="categories">
+    <button type="submit">save</button>
+</form>

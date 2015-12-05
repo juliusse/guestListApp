@@ -1,5 +1,5 @@
 angular.module('guestListApp.guests.directives.add', [])
-    .directive('guestAdd', [function() {
+    .directive('addGuest', [function() {
         return {
             restrict: 'E',
             templateUrl: 'guests/guest-add.tpl.html',
@@ -7,8 +7,28 @@ angular.module('guestListApp.guests.directives.add', [])
         }
     }])
     .controller('guestAddController', [
-        '$scope',
-        function($scope) {
-            $scope.name = 'Guest1';
+        '$scope','GuestService',
+        function($scope, GuestService) {
+            $scope.name = '';
+            $scope.email = '';
+            $scope.categories = '';
+
+
+            $scope.searchForSuggestion = function() {
+
+            };
+
+
+            $scope.save = function() {
+                var categories = $scope.categories.split(',');
+                var newGuest = new GuestService({name:$scope.name,email:$scope.email,categories:categories});
+                GuestService.save(newGuest, function(){
+                    $scope.name = '';
+                    $scope.email = '';
+                    document.getElementById('add_guest_name').focus();
+                });
+            }
+
+
         }
     ]);

@@ -12,7 +12,7 @@
           email
         </th>
         <th>
-          caegories
+          categories
         </th>
       </tr>
     </head>
@@ -21,7 +21,7 @@
     >
       <td>{{guest.name}}</td>
       <td>{{guest.email}}</td>
-      <td>{{guest.categories}}</td>
+      <td><span ng-repeat="category in guest.categories">{{category}} {{$last ? '' : ', '}}</span></td>
     </tr>
   </table>
 
