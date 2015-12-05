@@ -7,7 +7,7 @@ router
   .get('/', function(request, response, next) {
     var query = {};
     if( request.query.name ) {
-      var regex = new RegExp(request.query.name);
+      var regex = new RegExp("^"+request.query.name,'i');
       query.$or = [
         {
           name: regex

@@ -1,5 +1,5 @@
 <form ng-submit="save()">
-    <input id="add_guest_name" ng-model="name" ng-change="searchForSuggestion()">
+    <input id="add_guest_name" ng-model="name" ng-keyup="searchForSuggestion($event)">
     <input ng-model="email" >
     <input ng-model="categories">
     <button type="submit">save</button>
