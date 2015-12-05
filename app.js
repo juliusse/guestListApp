@@ -6,7 +6,7 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 require('./model/Person');
-mongoose.connect('mongodb://localhost/guestListApp');
+mongoose.connect('mongodb://localhost:/guestListApp');
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
@@ -23,11 +23,10 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(require('less-middleware')(path.join(__dirname, 'public')));
 
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'public/dist')));
+
 app.use('/', routes);
-
 app.use('/users', users);
 
 // catch 404 and forward to error handler
@@ -59,4 +58,5 @@ app.use(function(err, req, res, next) {
     error: {}
   });
 });
+
 module.exports = app;

@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": "AAAA,GAAI;EACF,UAAU,EAAE,IAAI",
+"sources": ["../src/sass/user.scss"],
+"names": [],
+"file": "app.min.css"
+}
