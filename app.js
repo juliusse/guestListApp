@@ -19,6 +19,10 @@ app.use(express.static(path.join(__dirname, 'public/dist')));
 
 require('./backend')(app);
 
+app._router.stack.forEach(function(r) {
+  console.log(r.path);
+})
+
 app.listen(3000, function() {
   console.log('listening on http://127.0.0.1:3000');
 });

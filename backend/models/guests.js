@@ -9,10 +9,10 @@ var GuestSchema = new mongoose.Schema({
     type: String,
     required: true
   },
-  category: {
+  categories: {
     type: [String],
     required: true
   }
 });
 
-var GuestModel = mongoose.model('Guest', GuestSchema);
+module.exports = mongoose.model('Guest', GuestSchema);
