@@ -1,10 +1,15 @@
 module.exports = function(grunt) {
   grunt.initConfig({
     uglify: {
-      options: {},
+      options: {
+        mangle: false,
+        compress: false,
+        beautify: true
+      },
       app: {
         files: {
           'public/dist/app.min.js': [
+            'public/tmp/templates.js',
             'public/src/js/modules/**/*.js',
             'public/src/js/app.js'
           ]
@@ -21,7 +26,11 @@ module.exports = function(grunt) {
     },
 
     clean: {
-      app: ['public/dist/app*'],
+      tmp : ['public/tmp'],
+      app: [
+        'public/tmp',
+        'public/dist/app*'
+      ],
       all: ['public/dist']
     },
 
@@ -30,7 +39,7 @@ module.exports = function(grunt) {
       app: {
         files: {
          'public/dist/app.min.css': [
-            'public/src/sass/*.scss'
+            'public/src/sass/**/*.scss'
           ]
         }
       },
@@ -52,6 +61,17 @@ module.exports = function(grunt) {
           dest: 'public/dist/fonts'
         }]
       }
+    },
+
+    html2js: {
+      app: {
+        options: {
+            base: 'public/src/views'
+          },
+          src: ['public/src/views/**/*.tpl.html'],
+          dest: 'public/tmp/templates.js',
+          module: 'guestListApp.templates'
+      }
     }
   });
 
@@ -59,7 +79,8 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-sass');
   grunt.loadNpmTasks('grunt-contrib-copy');
   grunt.loadNpmTasks('grunt-contrib-clean');
+  grunt.loadNpmTasks('grunt-html2js');
 
-  grunt.registerTask('up', ['clean:app', 'uglify:app', 'sass:app']);
-  grunt.registerTask('build', ['clean:all', 'uglify', 'sass', 'copy']);
+  grunt.registerTask('up', ['clean:app', 'html2js', 'uglify:app', 'sass:app', 'clean:tmp']);
+  grunt.registerTask('build', ['clean:all', 'html2js', 'uglify', 'sass', 'copy', 'clean:tmp']);
 };

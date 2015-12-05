@@ -1,1 +1,4 @@
-console.log('Im the user module.');
+angular
+  .module('guestListApp.users', [
+    'guestListApp.users.directives.listGuests'
+  ]);

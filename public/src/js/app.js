@@ -1,1 +1,5 @@
-console.log('Im the app.');
+angular.module('guestListApp', [
+  'guestListApp.templates',
+
+  'guestListApp.users'
+]);
